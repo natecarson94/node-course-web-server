@@ -23,9 +23,9 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use((req, res, next) => {
-    res.render('maintenence.hbs');
-})
+// app.use((req, res, next) => {
+//     res.render('maintenence.hbs');
+// })
 
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear();
@@ -54,7 +54,11 @@ app.get('/bad', (req, res) => {
     })
 })
 
-
+app.get('/projects', (req, res)=>{
+    res.render('projects.hbs', {
+        pageTitle: 'Project Page',
+    });    
+})
 
 app.listen(port, () =>{
     console.log(`Server is live on port ${port}`);
